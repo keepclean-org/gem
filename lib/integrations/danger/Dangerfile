@@ -1,0 +1,1 @@
+warn "MR is classed as Work in Progress" if gitlab.mr_title.include? "WIP:"
