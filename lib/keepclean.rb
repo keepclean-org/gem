@@ -42,6 +42,8 @@ module Keepclean
       end
     end
 
+    Keepclean.logger.debug "Running with args: #{args.inspect}"
+
     puts "*** Keepclean v#{Keepclean::VERSION} ***"
 
     token = ENV['KEEPCLEAN_TOKEN']
