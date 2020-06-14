@@ -6,6 +6,10 @@ require 'keepclean/version'
 require 'keepclean/formatter'
 
 module Keepclean
+  def self.server
+    ENV['KEEPCLEAN_SERVER'] || "https://keepclean.herokuapp.com"
+  end
+
   def self.project_name
     ENV['KEEPCLEAN_PROJECT'] || ENV['DRONE_REPO']
   end
@@ -51,7 +55,7 @@ module Keepclean
       exit -1
     end
 
-    uri = URI('http://192.168.0.31:5000/manifest')
+    uri = URI("#{server}/manifest")
     res = Net::HTTP.post_form(uri, {
       version: Keepclean::VERSION,
       token: token,
