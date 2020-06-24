@@ -11,11 +11,11 @@ module Keepclean
   end
 
   def self.project_name
-    ENV['KEEPCLEAN_PROJECT'] || ENV['DRONE_REPO'] || ENV['TRAVIS_REPO_SLUG']
+    ENV['KEEPCLEAN_PROJECT'] || ENV['DRONE_REPO'] || ENV['TRAVIS_REPO_SLUG'] || ENV['GITHUB_REPOSITORY']
   end
 
   def self.build_id
-    ENV['KEEPCLEAN_BUILD_ID'] || ENV['DRONE_BUILD_NUMBER'] || ENV['TRAVIS_BUILD_ID']
+    ENV['KEEPCLEAN_BUILD_ID'] || ENV['DRONE_BUILD_NUMBER'] || ENV['TRAVIS_BUILD_ID'] || ENV['GITHUB_RUN_ID']
   end
 
   def self.logger
